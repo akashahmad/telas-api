@@ -124,3 +124,8 @@ npx sequelize-cli db:migrate:undo
 
 Undo All:
 npx sequelize-cli db:migrate:undo:all
+
+
+Other Properties added:
+allowNull: false,
+unique: true
