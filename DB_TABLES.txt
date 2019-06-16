@@ -1,0 +1,236 @@
+--------------------
+contact_verification
+--------------------
+id
+contactNumber -> integer
+generatedCode -> integer(5 digit)
+status -> string('unused', 'used', 'alreadyUsed')
+=================================================
+sequlize cli command:
+npx sequelize-cli model:generate --name contact_verification --attributes phone_number:integer,generated_code:integer,status:text,type:string
+=================================================
+
+
+
+----------
+User
+----------
+id
+profile_type: string('vet', 'vet shop', 'other')
+first_name: string
+last_name: string
+email: string
+password: string
+cpf: integer
+dob: date
+gender: string
+
+opening_door: string
+closing_door: string
+interval: string
+monday_flag: bool
+mondya_schedule: string
+tuesday_flag: bool
+tuesday_schedule: string
+wednesday_flag: bool
+wednesday_schedule: string
+thursday_flag: bool
+thursday_schedule: string
+friday_flag: bool
+friday_schedule: string
+saturday_flag: bool
+saturday_schedule: string
+sunday_flag: bool
+sunday_schedule: string
+twenty_four: bool
+home_service: bool
+number_of_customers_per_schedule: integer
+
+
+=================================================
+sequlize cli command:
+npx sequelize-cli model:generate --name user --attributes profile_type:string,first_name:string,last_name:string,email:string,password:string,cpf:integer,dob:date,gender:string,opening_door:string,closing_door:string,interval:string,monday_flag:bool,mondya_schedule:string,tuesday_flag:bool,tuesday_schedule:string,wednesday_flag:bool,wednesday_schedule:string,thursday_flag:bool,thursday_schedule:string,friday_flag:bool,friday_schedule:string,saturday_flag:bool,saturday_schedule:string,sunday_flag:bool,sunday_schedule:string,twenty_four:bool,home_service:bool,number_of_customers_per_schedule:integer
+=================================================
+
+--------------
+user_metas
+-------------
+id
+user_id
+meta_key
+meta_value
+
+===========================
+sequlize cli command:
+npx sequelize-cli model:generate --name user_meta --attributes user_id:integer,meta_key:string,meta_value:text
+
+====================
+
+
+-----------
+services
+----------
+id
+user_id: integer
+name: string
+category: string
+sub_category: string
+availability: bool
+price: integer
+===========================
+sequlize cli command: 
+npx sequelize-cli model:generate --name post --attributes name:string,category:string,sub_category:string,availability:bool,price:integer,user_id:integer
+====================
+
+--------------
+user_associate_appointments
+-------------
+id
+user_id
+appointment_id
+===========================
+sequlize cli command: 
+npx sequelize-cli model:generate --name user_associate_appointment --attributes user_id:integer,appointment_id:integer
+
+====================
+
+
+--------------
+appointments
+-------------
+id
+app_user_id: integer
+user_id: integer
+service_id: integer
+client_name: string
+pet_information: string
+pet_image_url: string
+when: date
+price: integer
+appointment_record: string
+payment_status: bool
+status: string(pending, confirmed, cancelled)
+cancelled_status: string
+===========================
+sequlize cli command:
+npx sequelize-cli model:generate --name post_meta --attributes app_user_id:integer,user_id:integer,service_id:integer,client_name:string,pet_information:string,pet_image_url:string,when:date,price:integer,appointment_record:string,payment_status:bool,status:string,cancelled_status:string
+====================
+
+
+
+--------------
+categories
+----------------
+
+id
+name
+content
+slug
+type (post,category)
+status
+
+
+==========================
+sequlize cli command: 
+npx sequelize-cli model:generate --name category --attributes name:string,content:string,slug:string,type:enum,status:enum
+
+====================
+
+-------------------------
+Doctors
+---------------------------
+
+id
+first_name
+last_name
+title
+specilities (comman seperated ids)
+clinical_expertise
+education_tranning
+certifications
+interesting_facts
+info_video
+pic
+
+==========================
+sequlize cli command: 
+npx sequelize-cli model:generate --name doctor --attributes first_name:string,last_name:string,title:string,specilities:text,clinical_expertise:text,education_tranning:text,interesting_facts:text,certifications:text,info_video:text,pic:text
+
+====================
+
+-----------
+Doctor_Locations
+-----------
+id
+doctor_id
+location_id
+
+==========================
+sequlize cli command: 
+npx sequelize-cli model:generate --name doctor_location --attributes doctor_id:integer,location_id:integer
+
+====================
+
+----------------------
+locations
+-------------------
+
+id
+title
+slug
+content
+address
+lat
+lng
+city
+country
+zipcode
+location_categories (comma seperated names)
+phone
+fax
+pic
+hours
+
+==========================
+sequlize cli command: 
+npx sequelize-cli model:generate --name location --attributes title:string,slug:string,content:text,address:string, lat:string,lng:string,city:string,country:string,zipcode:string,location_categories:text,phone:string,fax:string,pic:string:hours:string
+
+====================
+
+
+
+
+----------------------
+form_builders
+-------------------
+
+id
+title
+data
+type
+controls
+success
+
+==========================
+sequlize cli command: 
+npx sequelize-cli model:generate --name form_builder --attributes title:string,data:text,type:string, controls:string,success:string
+
+====================
+
+
+
+----------------------
+form_submissions
+-------------------
+
+id
+form_id
+data
+
+==========================
+sequlize cli command: 
+npx sequelize-cli model:generate --name form_submission --attributes form_id:integer,data:text,type:string, controls:string,success:string
+====================
+
+
+

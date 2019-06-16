@@ -181,7 +181,8 @@ const UserController = {
                                 // signin user and generate a jwt
                                 const token = jsonwebtoken.sign({
                                     id: user.id,
-                                    email: user.email
+                                    email: user.email,
+                                    firstName: user.firstName
                                 }, config.jwt.secret, { expiresIn: '1y' })
 
                                 // return json web token
