@@ -156,6 +156,10 @@ allowNull: false,
 unique: true
 references: { model: 'users', key: 'id' }
 
+indexing in migration:
+return queryInterface.createTable('user_meta', {
+    // columns...
+}).then(() => queryInterface.addIndex('user_meta', ['user_id', 'some_one_else']))
 
 Association added in Models:
 user.hasMany(models.user_meta, {foreignKey: 'user_id'});
