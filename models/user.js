@@ -9,11 +9,37 @@ module.exports = (sequelize, DataTypes) => {
     cpf: DataTypes.INTEGER,
     dob: DataTypes.DATE,
     gender: DataTypes.STRING,
-    opening_door: DataTypes.STRING,
-    closing_door: DataTypes.STRING,
+    monday_opening_door: DataTypes.STRING,
+    monday_closing_door: DataTypes.STRING,
+    monday_lunch_from: DataTypes.STRING,
+    monday_lunch_to: DataTypes.STRING,
+    tuesday_opening_door: DataTypes.STRING,
+    tuesday_closing_door: DataTypes.STRING,
+    tuesday_lunch_from: DataTypes.STRING,
+    tuesday_lunch_to: DataTypes.STRING,
+    wednesday_opening_door: DataTypes.STRING,
+    wednesday_closing_door: DataTypes.STRING,
+    wednesday_lunch_from: DataTypes.STRING,
+    wednesday_lunch_to: DataTypes.STRING,
+    thursday_opening_door: DataTypes.STRING,
+    thursday_closing_door: DataTypes.STRING,
+    thursday_lunch_from: DataTypes.STRING,
+    thursday_lunch_to: DataTypes.STRING,
+    friday_opening_door: DataTypes.STRING,
+    friday_closing_door: DataTypes.STRING,
+    friday_lunch_from: DataTypes.STRING,
+    friday_lunch_to: DataTypes.STRING,
+    saturday_opening_door: DataTypes.STRING,
+    saturday_closing_door: DataTypes.STRING,
+    saturday_lunch_from: DataTypes.STRING,
+    saturday_lunch_to: DataTypes.STRING,
+    sunday_opening_door: DataTypes.STRING,
+    sunday_closing_door: DataTypes.STRING,
+    sunday_lunch_from: DataTypes.STRING,
+    sunday_lunch_to: DataTypes.STRING,
     interval: DataTypes.STRING,
     monday_flag: DataTypes.BOOLEAN,
-    mondya_schedule: DataTypes.STRING,
+    monday_schedule: DataTypes.STRING,
     tuesday_flag: DataTypes.BOOLEAN,
     tuesday_schedule: DataTypes.STRING,
     wednesday_flag: DataTypes.BOOLEAN,
@@ -31,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
     number_of_customers_per_schedule: DataTypes.INTEGER
   }, {});
   user.associate = function(models) {
-    // associations can be defined here
+    user.hasMany(models.user_meta, {foreignKey: 'user_id'});
   };
   return user;
 };

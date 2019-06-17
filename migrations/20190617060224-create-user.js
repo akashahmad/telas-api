@@ -12,16 +12,20 @@ module.exports = {
         type: Sequelize.STRING
       },
       first_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       last_name: {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       cpf: {
         type: Sequelize.INTEGER
@@ -32,10 +36,88 @@ module.exports = {
       gender: {
         type: Sequelize.STRING
       },
-      opening_door: {
+      monday_opening_door: {
         type: Sequelize.STRING
       },
-      closing_door: {
+      monday_closing_door: {
+        type: Sequelize.STRING
+      },
+      monday_lunch_from: {
+        type: Sequelize.STRING
+      },
+      monday_lunch_to: {
+        type: Sequelize.STRING
+      },
+      tuesday_opening_door: {
+        type: Sequelize.STRING
+      },
+      tuesday_closing_door: {
+        type: Sequelize.STRING
+      },
+      tuesday_lunch_from: {
+        type: Sequelize.STRING
+      },
+      tuesday_lunch_to: {
+        type: Sequelize.STRING
+      },
+      wednesday_opening_door: {
+        type: Sequelize.STRING
+      },
+      wednesday_closing_door: {
+        type: Sequelize.STRING
+      },
+      wednesday_lunch_from: {
+        type: Sequelize.STRING
+      },
+      wednesday_lunch_to: {
+        type: Sequelize.STRING
+      },
+      thursday_opening_door: {
+        type: Sequelize.STRING
+      },
+      thursday_closing_door: {
+        type: Sequelize.STRING
+      },
+      thursday_lunch_from: {
+        type: Sequelize.STRING
+      },
+      thursday_lunch_to: {
+        type: Sequelize.STRING
+      },
+      friday_opening_door: {
+        type: Sequelize.STRING
+      },
+      friday_closing_door: {
+        type: Sequelize.STRING
+      },
+      friday_lunch_from: {
+        type: Sequelize.STRING
+      },
+      friday_lunch_to: {
+        type: Sequelize.STRING
+      },
+      saturday_opening_door: {
+        type: Sequelize.STRING
+      },
+      saturday_closing_door: {
+        type: Sequelize.STRING
+      },
+      saturday_lunch_from: {
+        type: Sequelize.STRING
+      },
+      saturday_lunch_to: {
+        type: Sequelize.STRING
+      },
+      sunday_opening_door: {
+        type: Sequelize.STRING
+      },
+      sunday_closing_door: {
+        type: Sequelize.STRING
+      },
+      sunday_lunch_from: {
+        type: Sequelize.STRING
+      },
+      sunday_lunch_to: {
         type: Sequelize.STRING
       },
       interval: {
@@ -44,7 +126,7 @@ module.exports = {
       monday_flag: {
         type: Sequelize.BOOLEAN
       },
-      mondya_schedule: {
+      monday_schedule: {
         type: Sequelize.STRING
       },
       tuesday_flag: {

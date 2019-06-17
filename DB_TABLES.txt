@@ -24,12 +24,37 @@ password: string
 cpf: integer
 dob: date
 gender: string
-
-opening_door: string
-closing_door: string
+monday_opening_door: string
+monday_closing_door: string
+monday_lunch_from: string
+monday_lunch_to: string
+tuesday_opening_door: string
+tuesday_closing_door: string
+tuesday_lunch_from: string
+tuesday_lunch_to: string
+wednesday_opening_door: string
+wednesday_closing_door: string
+wednesday_lunch_from: string
+wednesday_lunch_to: string
+thursday_opening_door: string
+thursday_closing_door: string
+thursday_lunch_from: string
+thursday_lunch_to: string
+friday_opening_door: string
+friday_closing_door: string
+friday_lunch_from: string
+friday_lunch_to: string
+saturday_opening_door: string
+saturday_closing_door: string
+saturday_lunch_from: string
+saturday_lunch_to: string
+sunday_opening_door: string
+sunday_closing_door: string
+sunday_lunch_from: string
+sunday_lunch_to: string
 interval: string
 monday_flag: boolean
-mondya_schedule: string
+monday_schedule: string
 tuesday_flag: boolean
 tuesday_schedule: string
 wednesday_flag: boolean
@@ -49,7 +74,7 @@ number_of_customers_per_schedule: integer
 
 =================================================
 sequlize cli command:
-npx sequelize-cli model:generate --name user --attributes profile_type:string,first_name:string,last_name:string,email:string,password:string,cpf:integer,dob:date,gender:string,opening_door:string,closing_door:string,interval:string,monday_flag:boolean,mondya_schedule:string,tuesday_flag:boolean,tuesday_schedule:string,wednesday_flag:boolean,wednesday_schedule:string,thursday_flag:boolean,thursday_schedule:string,friday_flag:boolean,friday_schedule:string,saturday_flag:boolean,saturday_schedule:string,sunday_flag:boolean,sunday_schedule:string,twenty_four:boolean,home_service:boolean,number_of_customers_per_schedule:integer
+npx sequelize-cli model:generate --name user --attributes profile_type:string,first_name:string,last_name:string,email:string,password:string,cpf:integer,dob:date,gender:string,monday_opening_door:string,monday_closing_door:string,monday_lunch_from:string,monday_lunch_to:string,tuesday_opening_door:string,tuesday_closing_door:string,tuesday_lunch_from:string,tuesday_lunch_to:string,wednesday_opening_door:string,wednesday_closing_door:string,wednesday_lunch_from:string,wednesday_lunch_to:string,thursday_opening_door:string,thursday_closing_door:string,thursday_lunch_from:string,thursday_lunch_to:string,friday_opening_door:string,friday_closing_door:string,friday_lunch_from:string,friday_lunch_to:string,saturday_opening_door:string,saturday_closing_door:string,saturday_lunch_from:string,saturday_lunch_to:string,sunday_opening_door:string,sunday_closing_door:string,sunday_lunch_from:string,sunday_lunch_to:string,interval:string,monday_flag:boolean,monday_schedule:string,tuesday_flag:boolean,tuesday_schedule:string,wednesday_flag:boolean,wednesday_schedule:string,thursday_flag:boolean,thursday_schedule:string,friday_flag:boolean,friday_schedule:string,saturday_flag:boolean,saturday_schedule:string,sunday_flag:boolean,sunday_schedule:string,twenty_four:boolean,home_service:boolean,number_of_customers_per_schedule:integer
 =================================================
 
 --------------
@@ -126,6 +151,14 @@ Undo All:
 npx sequelize-cli db:migrate:undo:all
 
 
-Other Properties added:
+Other Properties added in migration:
 allowNull: false,
 unique: true
+references: { model: 'users', key: 'id' }
+
+
+Association added in Models:
+user.hasMany(models.user_meta, {foreignKey: 'user_id'});
+user_meta.belongsTo(models.user, {foreignKey: 'user_id'});
+
+user.find({ where: { ...}, include: ['user_meta']})
